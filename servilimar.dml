@@ -1,0 +1,120 @@
+-- ============================================
+-- INSERCIÓN DE DATOS (DML)
+-- ============================================
+
+-- Insertar Ciudades
+INSERT INTO Ciudad (nombre_ciudad, codigo_postal) VALUES
+('Medellín', '050001'),
+('Bogotá', '110111'),
+('Cali', '760001'),
+('Barranquilla', '080001'),
+('Cartagena', '130001'),
+('Pereira', '660001'),
+('Bucaramanga', '680001'),
+('Manizales', '170001'),
+('Armenia', '630001'),
+('Popayán', '190001');
+
+--Insertar Tipos de Usuario 
+INSERT INTO TipoUsuario (nombre) VALUES
+('Cliente'),
+('Empleado'),
+('Proveedor'),
+('Administrativo'),
+('Supervisor'),
+('Gerente'),
+('Mensajero'),
+('Soporte'),
+('Contador'),
+('Coordinador');
+
+-- Insertar Usuarios
+INSERT INTO Usuario (nombre, apellido, tipo_usuario_id, condicion_especial, ciudad_id) VALUES
+('Juan', 'Pérez', 1, NULL, 1),
+('María', 'García', 1, 'Embarazo', 2),
+('Carlos', 'Rodríguez', 2, NULL, 3),
+('Ana', 'Martínez', 1, 'Adulto mayor', 4),
+('Luis', 'González', 2, NULL, 5),
+('Patricia', 'López', 1, 'Silla de ruedas', 6),
+('Diego', 'Hernández', 3, NULL, 7),
+('Laura', 'Torres', 1, NULL, 8),
+('Miguel', 'Ramírez', 2, NULL, 9),
+('Sofia', 'Castro', 1, 'Adulto mayor', 10);
+
+-- Insertar Medios de Contacto
+INSERT INTO Medio (nombre) VALUES
+('Correo electrónico'),
+('Teléfono'),
+('SMS'),
+('WhatsApp'),
+('Telegram'),
+('Facebook Messenger'),
+('Instagram DM'),
+('Llamada de voz'),
+('Notificación Push'),
+('Carta física');
+
+-- Insertar Contactos de Usuarios 
+INSERT INTO ContactoUsuario (usuario_id, medio_id, valor_contacto) VALUES
+(1, 1, 'juan.perez@email.com'),
+(2, 2, '3001234567'),
+(3, 1, 'carlos.rodriguez@email.com'),
+(4, 3, '3012345678'),
+(5, 4, '3023456789'),
+(6, 5, '@patricia_lopez'),
+(7, 6, 'facebook.com/diego.hernandez'),
+(8, 7, '@laura_torres'),
+(9, 8, '3045678901'),
+(10, 9, 'miguel.ramirez@notificaciones.com');
+
+--  Insertar Servicios
+INSERT INTO Servicio (nombre, descripcion, estado) VALUES
+('Despacho', 'Servicio de despacho de productos', 'Activo'),
+('Entrega de artículos', 'Entrega y recepción de artículos', 'Activo'),
+('Atención al cliente', 'Consultas y soporte general', 'Activo'),
+('Consultoría', 'Asesoría especializada', 'Activo'),
+('Recepción de artículos', 'Recepción y registro de productos', 'Activo'),
+('Soporte técnico', 'Asistencia técnica especializada', 'Activo'),
+('Reclamos', 'Gestión de quejas y reclamos', 'Activo'),
+('Capacitación', 'Formación a empleados y usuarios', 'Activo'),
+('Auditoría', 'Revisión de procesos', 'Activo'),
+('Gestión de pedidos', 'Control de solicitudes de servicio', 'Activo');
+
+-- Insertar Empleados
+INSERT INTO Empleado (usuario_id, cargo, departamento) VALUES
+(3, 'Asesor de servicio', 'Atención al cliente'),
+(5, 'Técnico de soporte', 'Soporte técnico'),
+(9, 'Coordinador de despacho', 'Logística'),
+(2, 'Administrador', 'Sistemas'),
+(4, 'Recepcionista', 'Front Desk'),
+(6, 'Supervisora', 'Atención al cliente'),
+(7, 'Consultor', 'Consultoría'),
+(8, 'Analista', 'Reclamos'),
+(1, 'Gestor de pedidos', 'Logística'),
+(10, 'Capacitadora', 'Formación');
+
+--  Insertar Turnos 
+INSERT INTO Turno (usuario_id, servicio_id, empleado_id, fecha, hora_inicio, hora_fin, estado) VALUES
+(1, 1, 3, '2025-01-15', '09:00:00', '09:30:00', 'Confirmado'),
+(2, 2, 9, '2025-01-15', '09:30:00', '10:00:00', 'Confirmado'),
+(3, 3, 1, '2025-01-15', '10:00:00', '10:30:00', 'Pendiente'),
+(4, 4, 5, '2025-01-15', '10:30:00', '11:00:00', 'Confirmado'),
+(5, 5, 2, '2025-01-16', '09:00:00', '09:30:00', 'Atendido'),
+(6, 6, 3, '2025-01-16', '09:30:00', '10:00:00', 'Pendiente'),
+(7, 7, 8, '2025-01-16', '10:00:00', '10:30:00', 'Confirmado'),
+(8, 8, 10, '2025-01-16', '10:30:00', '11:00:00', 'Atendido'),
+(9, 9, 6, '2025-01-17', '08:00:00', '08:30:00', 'Confirmado'),
+(10, 10, 4, '2025-01-17', '08:30:00', '09:00:00', 'Pendiente');
+
+-- Insertar Notificaciones
+INSERT INTO Notificacion (usuario_id, medio_id, mensaje, fecha_envio, estado) VALUES
+(1, 1, 'Su turno ha sido confirmado para el 15/01/2025 a las 09:00', '2025-01-14 15:30:00', 'Enviado'),
+(2, 2, 'Recordatorio: turno mañana 09:30', '2025-01-14 18:00:00', 'Enviado'),
+(3, 3, 'Bienvenido al sistema de turnos LiMar', '2025-01-14 10:00:00', 'Enviado'),
+(4, 4, 'Su turno está confirmado para el 15/01/2025 a las 10:30', '2025-01-14 16:00:00', 'Enviado'),
+(5, 5, 'Su turno ha sido atendido. Gracias por su visita', '2025-01-16 11:35:00', 'Enviado'),
+(6, 6, 'Registro exitoso. Bienvenida', '2025-01-14 11:00:00', 'Enviado'),
+(7, 7, 'Recordatorio: consultoría mañana', '2025-01-15 09:00:00', 'Enviado'),
+(8, 8, 'Turno confirmado para el 16/01/2025 a las 10:30', '2025-01-15 09:15:00', 'Enviado'),
+(9, 9, 'Actualización de servicio disponible', '2025-01-16 14:00:00', 'Enviado'),
+(10, 10, 'Turno pendiente de confirmación', '2025-01-16 15:00:00', 'Pendiente');
