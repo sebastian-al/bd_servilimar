@@ -232,15 +232,15 @@ docker run -d --name postgres-limar \
   -e POSTGRES_DB=servilimar \
   -p 5432:5432 postgres:14
 
-# 2. Levantar pgAdmin
+2. Levantar pgAdmin
 docker run -d --name pgadmin-limar \
   -e PGADMIN_DEFAULT_EMAIL=usuario@servilimar.com \
   -e PGADMIN_DEFAULT_PASSWORD=limar#123 \
   -p 8080:80 --link postgres-limar:postgres \
   dpage/pgadmin4
 
-# 3. Acceder a pgAdmin
-# Abrir navegador: http://localhost:8080
+3. Acceder a pgAdmin
+ Abrir navegador: http://localhost:8080
 
 🛠️ Tecnologías Utilizadas
 
