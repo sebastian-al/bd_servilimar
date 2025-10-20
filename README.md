@@ -216,12 +216,6 @@ El video de demostración incluye:
 
 ## 📁 Estructura del Repositorio
 ```
-servilimar-turnos/
-│
-├── README.md                 # Este archivo
-├── DDL.sql                   # Script de creación de tablas
-├── DML.sql                   # Script de inserción de datos
-└── docs/
    
 🚀 Inicio Rápido
 Opción 1: Comandos Individuales
